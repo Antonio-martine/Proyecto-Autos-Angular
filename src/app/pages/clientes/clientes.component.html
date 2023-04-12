@@ -1,0 +1,85 @@
+<div class="cotainer">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Automoviles</h4>
+            </div>
+            <div class="card-body">
+                <p>
+                    <label>Nombre del modelo:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nombre">
+                </p>
+                <p>
+                    <label>Pais de origen:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.rfc">
+                </p>
+                <p>
+                    <label>Costo:</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.domicilio">
+                </p>
+                <p>
+                    <label>Tipo:</label>
+                    <select class="form-control" [(ngModel)]="cliente.tipo"> 
+                        <option value="Deportivo">Deportivo</option>
+                        <option value="Familiar">Familiar</option>
+                        <option value="Clasico">Clasico</option>
+                    </select>
+                </p>
+                <p>
+                    <label>Color:</label>
+                    <select class="form-control" [(ngModel)]="cliente.departamento"> 
+                        <option value="Rojo">Rojo</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Personalizado">Personalizado</option>
+                    </select>
+                </p>
+            </div>
+            <div class="card-footer">
+                <table>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click) = "this.insertarCliente()">Insertar</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-warning" (click) = "this.updateCliente()">Actualizar</button>
+                        </td>
+                        
+                        <td>
+                            <button type="button" class="btn btn-danger" (click) = "this.deleteCliente(cliente.id)">Eliminar</button>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <h1>Registro de Autos</h1>
+    <table class="table">
+        <thead>
+            <th id="color1">Modelo:</th>
+            <th id="color1">Pais de origen:</th>
+            <th id="color1">Costo:</th>
+            <th id="color1">Tipo:</th>
+            <th id="color1">Color:</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td id="color1">{{ cliente.nombre }}</td>
+                <td id="color2">{{ cliente.rfc }}</td>
+                <td id="color1">{{ cliente.domicilio }}</td>
+                <td id="color2">{{ cliente.tipo }}</td>
+                <td id="color2">{{ cliente.departamento }}</td>
+                <td id="color1">
+                    <button type="button" class="btn btn-primary" (click)="selectCliente(cliente)">Seleccionar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
